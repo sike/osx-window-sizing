@@ -38,6 +38,21 @@ on error
 	set {w, h} to {0, 0}
 end try
 
+try
+	get isToggle
+on error
+	set isToggle to 1
+end try
+
+if isToggle is 0 then
+	set isToggle to 1
+else if isToggle is 1 then
+	set isToggle to 0.5
+else if isToggle is 0.5 then
+	set isToggle to 0
+end if
+
+
 tell application "System Events"
 	tell process myFrontMost
 		try
@@ -45,7 +60,7 @@ tell application "System Events"
 		on error
 			set {w, h} to {0, 0}
 		end try
-		set position of window 1 to {(0), ((screen_height - windowHeight) / 2.0) - desktopTop}
+		set position of window 1 to {(840 * isToggle), ((screen_height - windowHeight) / 2.0) - desktopTop}
 		set size of window 1 to {windowWidth - w, windowHeight}
 	end tell
 end tell

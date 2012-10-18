@@ -4,7 +4,7 @@ delay 0.1
 
 set AppleScript's text item delimiters to "x"
 
-set res to "1280x960"
+set res to "1024x960"
 # set res to text returned of (display dialog "Enter the width x height:" default answer ((windowWidth & windowHeight) as text))
 
 # if res is "" then
